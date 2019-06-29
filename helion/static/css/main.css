@@ -139,7 +139,9 @@ sub {
   bottom: -0.25em;
 }
 img {
-  border: 0;
+  display: block;
+  margin: 0 auto;
+  max-width: 650px;
 }
 svg:not(:root) {
   overflow: hidden;
