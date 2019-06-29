@@ -1,32 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="content">
+<section class="content">
 {% block content_title %}
-<h3>Articles</h3>
-{% endblock %}
+  <h1>Blog</h1>
+  {% endblock %}
 
-<ol id="post-list">
-{% for article in articles_page.object_list %}
-  <li>
-    <article class="hentry">
-      <header>
-        <h3 class="entry-title">
-        <time class="published" datetime="{{ article.date.isoformat() }}">
-          {{ article.locale_date }}
-        </time>
-        --
-        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
-          {{ article.title }}
-        </a>
-        </h3>
-      </header>
-    </article>
-  </li>
+  <section class="category-display">
+    {% for category, articles in categories|sort %}
+      <div class="flex-col">
+        <h2>{{ category }} ({{ articles|count }})</h2>
+        {% for article in articles %}
+          {% if loop.index < 6 %}
+            <h3>
+              <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+            </h3>
+          {% endif %}
+        {% endfor %}
+        {% if articles|count > 5 %}
+          <h4>
+            <a href="{{ SITEURL }}/{{ category.url }}">More...</a>
+          </h4>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </section>
 
-{% endfor %}
-</ol><!-- /#posts-list -->
-{% if articles_page.has_other_pages() %}
+  {% if articles_page.has_other_pages() %}
     {% include 'pagination.html' %}
-{% endif %}
+  {% endif %}
 </section><!-- /#content -->
 {% endblock content %}

@@ -10,7 +10,6 @@ html {
 }
 body {
   margin: 0 auto;
-  max-width: 23cm;
   padding: 1em;
 }
 h1,
@@ -33,7 +32,7 @@ h6 {
   color: #859900;
 }
 main {
-  max-width: 675px;
+  max-width: 960px;
   margin: 0 auto;
 }
 article,
@@ -273,6 +272,9 @@ pre code {
   border-radius: 0.2em;
   background-color: #859900;
 }
+#content {
+  max-width: 650px;
+}
 #contentinfo {
   padding-top: 2em;
 }
@@ -286,4 +288,21 @@ ul#menu li {
 }
 #menu {
   padding-left: 0;
+}
+.category-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.flex-col {
+  flex-direction: column;
+  padding: 1em;
+}
+@media screen and (min-width: 800px) {
+  .flex-col {
+    flex-basis: 90%;
+  }
+  .flex-col {
+    flex-basis: 45%;
+  }
 }
