@@ -66,7 +66,7 @@ html {
 }
 p {
   font-size: 1em;
-  line-height: 1.25em;
+  line-height: 0.1em 1.5em;
 }
 a,
 a:visited {
@@ -82,6 +82,10 @@ a:focus {
 a:active,
 a:hover {
   outline: 0;
+}
+blockquote {
+  background: #073642;
+  padding: 0.75em;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -114,6 +118,9 @@ pre {
 }
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
+}
+ul {
+  list-style: decimal-leading-zero;
 }
 small {
   font-size: 80%;
