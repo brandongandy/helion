@@ -6,7 +6,7 @@
   {% endblock %}
 
   <section class="category-display">
-    {% for category, articles in categories|sort %}
+    {% for category, articles in categories|sort(articles|count) %}
       <div class="flex-col">
         <h2>{{ category }} ({{ articles|count }})</h2>
         {% for article in articles %}
